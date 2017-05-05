@@ -1,7 +1,7 @@
 node {
     stage "Prepare environment"
         checkout scm
-        def environment  = docker.build 'alfredherr/node'
+        def environment  = docker.build('alfredherr/node')
 
         environment.inside {
             stage "Checkout and build deps"
