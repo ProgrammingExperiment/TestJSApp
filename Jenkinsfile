@@ -6,10 +6,10 @@ node {
         environment.inside {
             stage "Checkout and build deps"
                 sh "npm install"
-                sh "nmp install gulp"
+                sh "pm2 start app.js"
 
             stage "Test and validate"
-                sh "npm install gulp-cli && ./node_modules/.bin/gulp"
+                sh "mocha"
                 junit 'reports/**/*.xml'
         }
 
