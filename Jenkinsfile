@@ -1,9 +1,10 @@
 node {
-    stage "Prepare environment"
+    stage "Prepare environment" {
+       
         checkout scm
-        def environment  = docker.build('alfredherr/node')
+       
+        docker.image('alfredherr/node').inside {
 
-        environment.inside {
             stage "Checkout and build deps"
                 sh "npm install"
                 sh "pm2 start app.js"
@@ -12,7 +13,7 @@ node {
                 sh "mocha"
                 junit 'reports/**/*.xml'
         }
-
+    }
     stage "Cleanup"
         deleteDir()
 }
