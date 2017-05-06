@@ -3,17 +3,13 @@ node {
        
         checkout scm
        
-        docker.image('alfredherr/node').inside {
+        docker.image('node').inside {
 
             stage "Checkout and build deps"
-        	sh "cd /home/jenkins"
-		checkout scm
                 sh "npm install"
-                sh "pm2 start app.js"
 
             stage "Test and validate"
                 sh "mocha"
-                junit 'reports/**/*.xml'
         }
     }
     stage "Cleanup"
