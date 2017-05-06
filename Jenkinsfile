@@ -6,7 +6,9 @@ node {
         docker.image('alfredherr/node').inside {
 
             stage "Checkout and build deps"
-                sh "sudo npm install"
+        	sh "cd /home/jenkins"
+		checkout scm
+                sh "npm install"
                 sh "pm2 start app.js"
 
             stage "Test and validate"
