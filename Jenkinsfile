@@ -1,12 +1,12 @@
 node {
-    stage "Prepare environment" {
+    stage("Prepare environment") {
        
         checkout scm
        
         docker.image('alfredherr/node').inside {
 
             stage "Checkout and build deps"
-                sh "npm install"
+                sh "sudo npm install"
                 sh "pm2 start app.js"
 
             stage "Test and validate"
