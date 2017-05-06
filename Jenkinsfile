@@ -3,7 +3,7 @@ node {
        
         checkout scm
        
-        docker.image('node').inside {
+        docker.image('node:6.10.3').inside {
 
             stage "Checkout and build deps"
                 sh "npm install"
