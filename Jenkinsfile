@@ -5,7 +5,7 @@ node {
        
         docker.image('node:6.10.3').inside {
 	   stage "Chown dir"
-	       sh "sudo chown -R $USER /usr/local"
+	       sh "chown -R $USER /usr/local"
 
             stage "Checkout and build deps"
                 sh "npm install"
