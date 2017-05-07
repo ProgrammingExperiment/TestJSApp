@@ -5,8 +5,7 @@ node {
        
         docker.image('node:6.10.3').inside {
            stage "Checkout and build deps"
-                sh "whoami"
-                sh "su - root"
+                sh "su root"
                 sh "npm install"
 
             stage "Test and validate"
