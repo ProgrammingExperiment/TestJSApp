@@ -1,5 +1,6 @@
+# use a node base image
 FROM node:7-onbuild
-MAINTAINER Alfredo Herrera <alfredherr@gmail.com>
+LABEL maintainer "alfredherr@gmail.com"
 
 # set a health check
 HEALTHCHECK --interval=5s \
@@ -8,5 +9,3 @@ HEALTHCHECK --interval=5s \
 
 # tell docker what port to expose
 EXPOSE 8000
-
-CMD ["/usr/sbin/sshd", "-D"]
